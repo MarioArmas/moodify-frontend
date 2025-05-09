@@ -1,0 +1,38 @@
+.container {
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  color: #e5e7eb;
+  width: fit-content;
+  margin: auto;
+}
+
+.uploadBox {
+  border: 2px dashed #6b7280;
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+  background-color: #1f1f2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 500px;
+  overflow: hidden;
+  position: relative;
+}
+
+.placeholderIcon {
+  font-size: 6rem;
+}
+
+.hiddenInput {
+  display: none;
+}
+
+.previewImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  border-radius: 8px;
+}

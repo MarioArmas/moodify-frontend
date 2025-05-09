@@ -1,0 +1,7 @@
+.link {
+  color: var(--secondary-color);
+}
+
+.link:hover {
+  color: var(--btn-hover);
+}
