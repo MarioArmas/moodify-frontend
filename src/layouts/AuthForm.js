@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
-import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
+import { loginUser, registerUser } from '../api/loginUser'
 import styles from './AuthForm.module.css'
 
 export default function AuthForm({ type = 'login' }) {
@@ -9,33 +9,45 @@ export default function AuthForm({ type = 'login' }) {
   const usernameRef = useRef()
   const passwordRef = useRef()
   const confirmPasswordRef = useRef()
+  const errorMessage = useRef()
   const { login } = useAuth()
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
+    errorMessage.current.innerText = ''
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      const res = await loginUser({
         username: usernameRef.current.value,
         password: passwordRef.current.value,
       })
-
-      login(res.data)
+      
+      login(res)
       navigate('/app/home')
-    } catch (err) {}
+    } catch (err) {
+      errorMessage.current.innerText = err.response.data.message
+    }
   }
 
   const handleSignupSubmit = async (e) => {
     e.preventDefault()
-    if (!isValidPassword(passwordRef.current.value, confirmPasswordRef.current.value)) return
+    errorMessage.current.innerText = ''
+
+    if (!isValidPassword(passwordRef.current.value, confirmPasswordRef.current.value)) {
+      errorMessage.current.innerText = 'Passwords do not match or are too short'
+      return
+    }
+
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/signup', {
+      const res = await registerUser({
         username: usernameRef.current.value,
         password: passwordRef.current.value,
       })
 
-      login(res.data)
+      login(res)
       navigate('/app/home')
-    } catch (err) {}
+    } catch (err) {
+      errorMessage.current.innerText = err.response.data.message
+    }
   }
 
   const isValidPassword = (password, secondPassword) => {
@@ -91,6 +103,9 @@ export default function AuthForm({ type = 'login' }) {
         <button className='btn' type='submit'>
           {type === 'login' ? 'Login' : 'Sign Up'}
         </button>
+
+        <p id='error-message' className='error-message' ref={errorMessage}></p>
+
         {type === 'login' ? (
           <p>
             New here?{' '}
