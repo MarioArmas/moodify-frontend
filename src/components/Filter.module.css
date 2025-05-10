@@ -2,16 +2,25 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
+  width: 100%;
+  background-color: #454553;
+  border-radius: 12px;
 }
 
 .btn {
   padding: 0.8em 1.4em;
   margin: 0;
-  background-color: #454553;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+  background-color: transparent;
+}
+
+.btn:first-child {
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
 }
 
 .btn:hover {
@@ -22,4 +31,5 @@
   color: #fff;
   background-color: #1E1E1E;
   box-shadow: inset 0 0 0 5px #454553;
+  border-radius: 12px;
 }

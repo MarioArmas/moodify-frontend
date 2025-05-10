@@ -35,7 +35,7 @@ export default function Menu() {
       </section>
 
       <h3>Recent Recommendations</h3>
-      <SongsList songs={[1, 2, 3]} />
+      <SongsList songs={[]} />
     </div>
   )
 }
