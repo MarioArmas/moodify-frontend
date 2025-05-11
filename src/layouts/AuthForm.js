@@ -15,16 +15,19 @@ export default function AuthForm({ type = 'login' }) {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     errorMessage.current.innerText = ''
+    
     try {
       const res = await loginUser({
         username: usernameRef.current.value,
         password: passwordRef.current.value,
+      }).catch((err) => {
+        errorMessage.current.innerText = err.response.data.message
       })
       
       login(res)
       navigate('/app/home')
     } catch (err) {
-      errorMessage.current.innerText = err.response.data.message
+      errorMessage.current.innerText = err
     }
   }
 
@@ -41,12 +44,14 @@ export default function AuthForm({ type = 'login' }) {
       const res = await registerUser({
         username: usernameRef.current.value,
         password: passwordRef.current.value,
+      }).catch((err) => {
+        errorMessage.current.innerText = err.response.data.message
       })
 
       login(res)
       navigate('/app/home')
     } catch (err) {
-      errorMessage.current.innerText = err.response.data.message
+      errorMessage.current.innerText = err
     }
   }
 

@@ -8,7 +8,7 @@ export default function SongsList({ songs }) {
         songs.map((song) => {
           return (
             <Song
-              id={song.id_recommendation}
+              key={song.id_song}
               name={song.Song.name}
               artist={song.Song.artist}
               url={song.Song.url_spotify}

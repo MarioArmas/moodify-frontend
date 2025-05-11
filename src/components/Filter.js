@@ -18,7 +18,7 @@ export default function Filter({ filtroActivo, setFiltroActivo }) {
           </button>
         ))}
       </div>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${styles.container2}`}>
         {filtros2.map((filtro) => (
           <button
             key={filtro}
