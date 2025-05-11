@@ -28,3 +28,16 @@ export const getRecommendationSongs = async (emotion) => {
 
   return response.data
 }
+
+export const getLastRecommendations = async () => {
+  const token = localStorage.getItem('token')
+  const username = localStorage.getItem('user')
+  
+  const response = await api.get(`/song/last-recommendations?username=${username}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+  
+  return response.data
+}

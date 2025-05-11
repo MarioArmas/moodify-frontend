@@ -31,9 +31,7 @@ export default function Recommendations() {
           </>
         )
       }
-      {
-        songs && emotionDB && <SongsList songs={songs} />
-      }
+      <SongsList songs={songs} />
     </div>
   )
 }

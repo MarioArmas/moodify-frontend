@@ -1,9 +1,19 @@
-import React from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { getLastRecommendations } from '../api/songs'
 import { MdHistory, MdOutlineFileUpload } from 'react-icons/md'
 import SongsList from '../components/SongsList'
 
 export default function Menu() {
+  const [songs, setSongs] = useState([])
+
+  useEffect(() => {
+    getLastRecommendations()
+    .then((data) => {
+      setSongs(data)
+    })
+  }, [])
+
   return (
     <div className='container'>
       <h2>Dashboard</h2>
@@ -35,7 +45,7 @@ export default function Menu() {
       </section>
 
       <h3>Recent Recommendations</h3>
-      <SongsList songs={[]} />
+      <SongsList songs={songs} />
     </div>
   )
 }
