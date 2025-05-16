@@ -9,9 +9,9 @@ export default function SongsList({ songs }) {
           return (
             <Song
               key={song.id_song}
-              name={song.Song.name}
-              artist={song.Song.artist}
-              url={song.Song.url_spotify}
+              name={song.name}
+              artist={song.artist}
+              url={song.url_spotify}
             />
           )
         })}

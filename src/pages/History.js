@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Filter from '../components/Filter'
 import SongsList from '../components/SongsList'
 import { getHistory } from '../api/songs'
@@ -21,7 +21,7 @@ export default function History() {
     if (filtroActivo.toLowerCase() === 'all') {
       setSongsFiltered(songs)
     } else {
-      const filteredSongs = songs.filter((song) => song.Song.Emotion.name.toLowerCase() === filtroActivo.toLowerCase())
+      const filteredSongs = songs.filter((song) => song.Emotion.name.toLowerCase() === filtroActivo.toLowerCase())
       setSongsFiltered(filteredSongs)
     }
   }, [songs, filtroActivo])

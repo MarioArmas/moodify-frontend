@@ -13,7 +13,31 @@ export const getHistory = async () => {
   return response.data
 }
 
-export const recommendationSongs = async (credentials) => {
-  const response = await api.get('/song/recommendation', credentials)
+export const getRecommendationSongs = async (emotion) => {
+  const token = localStorage.getItem('token')
+  const username = localStorage.getItem('user')
+
+  const response = await api.post('/song/recommendation', {
+    username: username,
+    emotion_name: emotion,
+  }, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+
+  return response.data
+}
+
+export const getLastRecommendations = async () => {
+  const token = localStorage.getItem('token')
+  const username = localStorage.getItem('user')
+  
+  const response = await api.get(`/song/last-recommendations?username=${username}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+  
   return response.data
 }

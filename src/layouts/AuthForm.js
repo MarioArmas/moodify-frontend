@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 import { loginUser, registerUser } from '../api/loginUser'
@@ -15,7 +15,7 @@ export default function AuthForm({ type = 'login' }) {
   const handleLoginSubmit = async (e) => {
     e.preventDefault()
     errorMessage.current.innerText = ''
-    
+
     try {
       const res = await loginUser({
         username: usernameRef.current.value,
