@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { CiImageOn } from "react-icons/ci";
 import styles from './ImageUploader.module.css'
 
-export default function ImageUploader() {
+export default function ImageUploader({ setImageFile}) {
   const [preview, setPreview] = useState(null)
   const [dragActive, setDragActive] = useState(false)
 
@@ -10,6 +10,7 @@ export default function ImageUploader() {
     if (file && file.type.startsWith('image/')) {
       const imageURL = URL.createObjectURL(file)
       setPreview(imageURL)
+      setImageFile(file)
     }
   }
 
