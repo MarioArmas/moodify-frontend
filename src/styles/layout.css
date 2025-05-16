@@ -129,3 +129,13 @@ label {
   font-size: 1rem;
   margin: 1.2em 0;
 }
+
+.sentry {
+  background-color: #fff;
+  color: #000;
+  margin-left: 1em;
+}
+
+.sentry:hover {
+  background-color: #ddd;
+}
