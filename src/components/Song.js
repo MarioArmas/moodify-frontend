@@ -21,7 +21,24 @@ export default function Song({ name, artist, url }) {
   }, [])
 
   return (
+<<<<<<< Updated upstream
     <div className={styles.container}>
+<<<<<<< Updated upstream
+=======
+      <iframe
+        title={`${name} - ${artist}`}
+        style={{
+          backgroundColor: '#000',
+          color: '#000'
+        }}
+        src={url}
+        width="100%" height="80" frameBorder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+=======
+    <div className={styles.container} ref={ref}>
+>>>>>>> Stashed changes
       {visible && (
         <iframe
           title={`${name} - ${artist}`}
@@ -35,6 +52,10 @@ export default function Song({ name, artist, url }) {
           loading="lazy">
         </iframe>
       )}
+<<<<<<< Updated upstream
+=======
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
     </div>
   )
 }
