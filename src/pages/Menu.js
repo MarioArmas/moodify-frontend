@@ -16,7 +16,7 @@ export default function Menu() {
 
   return (
     <div className='container'>
-      <h2>Dashboard</h2>
+      <h2>Home</h2>
       <p>
         Welcome to Moodify! Upload a photo to get music recommendations based on
         your mood.
