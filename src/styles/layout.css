@@ -2,10 +2,6 @@
   color: var(--font-color)
 }
 
-.App {
-  height: 100vh;
-}
-
 body {
   background-color: var(--primary-color);
   text-align: center;
