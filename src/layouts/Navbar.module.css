@@ -1,5 +1,5 @@
 nav {
-  position: sticky;
+  position: absolute;
   background-color: var(--primary-color);
   top: 0px;
   left: 0;
