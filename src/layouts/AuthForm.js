@@ -62,71 +62,73 @@ export default function AuthForm({ type = 'login' }) {
   }
 
   return (
-    <div className='auth-container'>
-      <h2>{type === 'login' ? 'Login' : 'Signup'}</h2>
-      <form
-        onSubmit={type === 'login' ? handleLoginSubmit : handleSignupSubmit}
-      >
-        <div>
-          <label htmlFor='name'>Nombre</label>
-          <input
-            ref={usernameRef}
-            type='text'
-            id='name'
-            name='name'
-            placeholder='Username'
-            required
-          />
-        </div>
-
-        <div>
-          <label htmlFor='password'>Contraseña</label>
-          <input
-            ref={passwordRef}
-            type='password'
-            id='password'
-            name='password'
-            placeholder='Password'
-            required
-          />
-        </div>
-
-        {type === 'signup' && (
+    <div className='main-container'>
+      <div className='auth-container'>
+        <h2>{type === 'login' ? 'Login' : 'Signup'}</h2>
+        <form
+          onSubmit={type === 'login' ? handleLoginSubmit : handleSignupSubmit}
+        >
           <div>
-            <label htmlFor='password'>Confirmar contraseña</label>
+            <label htmlFor='name'>Nombre</label>
             <input
-              ref={confirmPasswordRef}
-              type='password'
-              id='password'
-              name='password'
-              placeholder='Confirm password'
+              ref={usernameRef}
+              type='text'
+              id='name'
+              name='name'
+              placeholder='Username'
               required
             />
           </div>
-        )}
 
-        <button className='btn' type='submit'>
-          {type === 'login' ? 'Login' : 'Sign Up'}
-        </button>
+          <div>
+            <label htmlFor='password'>Contraseña</label>
+            <input
+              ref={passwordRef}
+              type='password'
+              id='password'
+              name='password'
+              placeholder='Password'
+              required
+            />
+          </div>
 
-        <p id='error-message' className='error-message' ref={errorMessage}></p>
+          {type === 'signup' && (
+            <div>
+              <label htmlFor='confirm-password'>Confirmar contraseña</label>
+              <input
+                ref={confirmPasswordRef}
+                type='password'
+                id='confirm-password'
+                name='confirm-password'
+                placeholder='Confirm password'
+                required
+              />
+            </div>
+          )}
 
-        {type === 'login' ? (
-          <p>
-            New here?{' '}
-            <Link to='/signup' className={`link ${styles.link}`}>
-              Create an account
-            </Link>
-          </p>
-        ) : (
-          <p>
-            Already have an account?{' '}
-            <Link to='/login' className={`link ${styles.link}`}>
-              Login
-            </Link>
-          </p>
-        )}
-      </form>
+          <button className='btn' type='submit'>
+            {type === 'login' ? 'Login' : 'Sign Up'}
+          </button>
+
+          <p id='error-message' className='error-message' ref={errorMessage}></p>
+
+          {type === 'login' ? (
+            <p>
+              New here?{' '}
+              <Link to='/signup' className={`link ${styles.link}`}>
+                Create an account
+              </Link>
+            </p>
+          ) : (
+            <p>
+              Already have an account?{' '}
+              <Link to='/login' className={`link ${styles.link}`}>
+                Login
+              </Link>
+            </p>
+          )}
+        </form>
+      </div>
     </div>
   )
 }
