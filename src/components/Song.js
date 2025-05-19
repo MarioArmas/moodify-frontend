@@ -21,7 +21,7 @@ export default function Song({ name, artist, url }) {
   }, [])
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} ref={ref}>
       {visible && (
         <iframe
           title={`${name} - ${artist}`}
