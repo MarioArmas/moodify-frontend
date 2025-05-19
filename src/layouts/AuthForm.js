@@ -93,12 +93,12 @@ export default function AuthForm({ type = 'login' }) {
 
         {type === 'signup' && (
           <div>
-            <label htmlFor='password'>Confirmar contraseña</label>
+            <label htmlFor='confirm-password'>Confirmar contraseña</label>
             <input
               ref={confirmPasswordRef}
               type='password'
-              id='password'
-              name='password'
+              id='confirm-password'
+              name='confirm-password'
               placeholder='Confirm password'
               required
             />
