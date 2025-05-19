@@ -2,6 +2,10 @@
   color: var(--font-color)
 }
 
+.App {
+  height: 100vh;
+}
+
 body {
   background-color: var(--primary-color);
   text-align: center;
@@ -21,6 +25,7 @@ body {
   justify-content: left;
   align-items: start;
   width: 650px;
+  padding-bottom: 4em;
 }
 
 .auth-container {

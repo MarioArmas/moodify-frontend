@@ -1,12 +1,21 @@
 import { useEffect, useState } from 'react'
-import { getRecommendationSongs } from '../api/songs'
+import { getRecommendationSongs, getEmotionAWS } from '../api/songs'
 import SongsList from '../components/SongsList'
 import ImageUploader from '../components/ImageUploader'
 
 export default function Recommendations() {
-  const [emotionAWS, setEmotionAWS] = useState('happy')
+  const [emotionAWS, setEmotionAWS] = useState(null)
   const [emotionDB, setEmotionDB] = useState(null)
   const [songs, setSongs] = useState([])
+  const [imageFile, setImageFile] = useState(null)
+  
+  useEffect(() => {
+    if (!imageFile) return
+    getEmotionAWS(imageFile)
+    .then((data) => {
+      setEmotionAWS(data.emotion)
+    })
+  }, [imageFile])
   
   useEffect(() => {
     if (!emotionAWS) return
@@ -20,8 +29,7 @@ export default function Recommendations() {
   return (
     <div className='container'>
       <h2>Upload your photo</h2>
-      <ImageUploader />
-
+      <ImageUploader setImageFile={setImageFile} />
       {
         emotionDB && (
           <>
