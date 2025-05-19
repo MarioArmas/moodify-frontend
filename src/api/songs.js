@@ -65,3 +65,16 @@ const convertToBase64 = (file) => {
     reader.onerror = (error) => reject(error)
   })
 }
+
+export const getStatistics = async () => {
+  const token = localStorage.getItem('token')
+  const username = localStorage.getItem('user')
+  
+  const response = await api.get(`/api/statistics/user-emotions?username=${username}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    }
+  })
+  
+  return response.data
+}

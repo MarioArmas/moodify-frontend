@@ -6,6 +6,7 @@ import Login from '../pages/Login'
 import Signup from '../pages/Signup'
 import Menu from '../pages/Menu'
 import Recommendations from '../pages/Recommendations'
+import Statistics from '../pages/Statistics'
 import History from '../pages/History'
 import Navbar from '../layouts/Navbar'
 
@@ -41,6 +42,14 @@ export default function AppRouter() {
           element={
             <PrivateRoutes>
               <History />
+            </PrivateRoutes>
+          }
+        />
+        <Route
+          path='/app/statistics'
+          element={
+            <PrivateRoutes>
+              <Statistics />
             </PrivateRoutes>
           }
         />
